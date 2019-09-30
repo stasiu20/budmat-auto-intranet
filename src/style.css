@@ -1,0 +1,17 @@
+.overflow {
+   overflow-y: scroll; 
+   max-height:610px; 
+}
+
+.form-input-error{
+    border: 2px solid red !important;
+}
+
+.form-error{
+    color:red;
+}
+
+.star-valid{
+   color:gray;
+   padding-right: 2px;
+}
