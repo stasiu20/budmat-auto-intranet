@@ -16,7 +16,7 @@ if(isset($_POST['forname']) && $_POST['forname'] !== ''  ) {
                 .$model['message']. '<br />'
                 .'odpisz na adres: '.$model['email-adress'];
         
-        $from = new SendGrid\Email(null, "test@budmatauto.com");
+        $from = new SendGrid\Email(null, "budmat-auto-intranet@budmatauto.com");
         $subject = $model['subject'];
         $to = new SendGrid\Email(null, $to_email);
         $content = new SendGrid\Content("text/html",$email_message);
