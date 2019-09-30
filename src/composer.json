@@ -25,7 +25,9 @@
     "issues": "https://github.com/almasaeed2010/AdminLTE/issues"
   },
   "require": {
-    "bower-asset/jquery": ">=1.9.0 <4.0.0"
+    "bower-asset/jquery": ">=1.9.0 <4.0.0",
+    "phpmailer/phpmailer": "~6.1",
+    "sendgrid/sendgrid": "~5.0.9"
   },
   "repositories": [
     {

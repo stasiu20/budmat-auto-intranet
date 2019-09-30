@@ -1,4 +1,6 @@
 <?php 
+require './vendor/autoload.php';
+$apikey = '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 ';
 include './pages/layout/head.php';  
 include './pages/layout/sidebar-nav.php'; 
 
@@ -10,11 +12,19 @@ if(isset($_POST['forname']) && $_POST['forname'] !== ''  ) {
     } else {
         $model = $_POST;
         $to_email = 'michal.a.zoltowski@gmail.com';
-        $subject = $model['subject'];
         $email_message =$model['forname'].' '. $model['surname'].'<br />'
                 .$model['message']. '<br />'
                 .'odpisz na adres: '.$model['email-adress'];
-        $success = mail($to_email,$subject,$email_message);
+        
+        $from = new SendGrid\Email(null, "test@budmatauto.com");
+        $subject = $model['subject'];
+        $to = new SendGrid\Email(null, $to_email);
+        $content = new SendGrid\Content("text/html",$email_message);
+        $mail = new SendGrid\Mail($from, $subject, $to, $content);
+        $sg = new \SendGrid($apikey);
+        $response = $sg->client->mail()->send()->post($mail);
+        
+        $success = $response->statusCode() == 202 ? true : false ;
         if ($success) {
             $sent = true;
             $message = 'Dziękujemy za wysłanie maila';
