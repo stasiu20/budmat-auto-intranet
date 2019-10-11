@@ -1,6 +1,6 @@
 <?php 
 require './vendor/autoload.php';
-$apikey = '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 ';
+$apikey = 'API KEY';
 include './pages/layout/head.php';  
 include './pages/layout/sidebar-nav.php'; 
 
